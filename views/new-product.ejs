@@ -1,0 +1,81 @@
+<%- include('header.ejs') %>
+
+<div class="container">
+  <h1>New Product</h1>
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input
+        type="number"
+        name="price"
+        class="form-control"
+        id="exampleInputPassword1"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="customFile" class="form-label">Select an image</label>
+      <input
+        class="form-control"
+        name="avatar"
+        type="file"
+        id="customFile"
+        accept="image/*"
+      />
+    </div>
+
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        name="tags"
+        type="checkbox"
+        id="inlineCheckbox1"
+        value="Work"
+      />
+      <label class="form-check-label" for="inlineCheckbox1">Work</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        name="tags"
+        type="checkbox"
+        id="inlineCheckbox2"
+        value="Lifestyle"
+      />
+      <label class="form-check-label" for="inlineCheckbox2">Lifestyle</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        name="tags"
+        type="checkbox"
+        id="inlineCheckbox3"
+        value="Motor"
+      />
+      <label class="form-check-label" for="inlineCheckbox3">Motor</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input
+        class="form-check-input"
+        name="tags"
+        type="checkbox"
+        id="inlineCheckbox4"
+        value="Mobile"
+      />
+      <label class="form-check-label" for="inlineCheckbox4">Mobile</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

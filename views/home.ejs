@@ -1,0 +1,26 @@
+<%- include('header.ejs') %>
+
+<p class="text-center">User ID: <%= session.userId %></p>
+
+<body>
+    <% if (!session.userId) { %>
+        <p class="text-center"><a href="/login">Login</a> to acces your products</p>
+    <% } else { %>
+        <h2 class="container px-4 text-center">Products</h2>
+        <% products.forEach(product => { %>
+            <div class="container px-4 text-center border rounded p-3 my-3">
+                <img src="<%= product.avatar ? `/avatars/${product.avatar}` : 'https://placehold.co/30' %>" class="img-thumbnail rounded w-25" alt="<%= product.avatar %>">
+                <p><%= product.owner %></p>
+                <h5><%= product.name %></h5>
+                <p><%= product.price %>€</p>
+                <p><%= product.tags.join(", ") %></p>
+                <a href="/products/delete/<%= product._id %>"  class="text-danger">
+                    <i class="bi bi-trash3-fill"></i>
+                </a>
+            </div>
+        <% }) %>
+    <% } %>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
