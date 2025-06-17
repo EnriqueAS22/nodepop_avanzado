@@ -24,6 +24,7 @@ export async function index(req, res, next) {
     }
 
     res.locals.products = await Product.list(filter, limit, skip, sort);
+    res.render("home");
   } catch (error) {
     next(error);
   }

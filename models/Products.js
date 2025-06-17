@@ -14,11 +14,12 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-productSchema.statics.list = function (filter, limit, skip, sort) {
+productSchema.statics.list = function (filter, limit, skip, sort, fields) {
   const query = Product.find(filter);
   query.limit(limit);
   query.skip(skip);
   query.sort(sort);
+  query.select(fields);
   return query.exec();
 };
 

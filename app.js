@@ -37,6 +37,18 @@ app.use(express.json());
  * API ROUTES
  */
 app.get("/api/products", apiProductsController.list);
+app.get("/api/products/:productId", apiProductsController.getOne);
+app.post(
+  "/api/products",
+  upload.single("avatar"),
+  apiProductsController.newProduct
+);
+app.put(
+  "/api/products/:productId",
+  upload.single("avatar"),
+  apiProductsController.update
+);
+app.delete("/api/products/:productId", apiProductsController.deleteProduct);
 
 /**
  * WEB APLICATION ROUTES
@@ -83,6 +95,15 @@ app.use((err, req, res, next) => {
   }
 
   res.status(err.status || 500);
+
+  /**
+   * JSON ERROR
+   */
+  if (req.url.startsWith("/api/")) {
+    res.json({ error: err.message });
+    return;
+  }
+
   res.locals.message = err.message;
   res.locals.error = process.env.NODEAPP_ENV === "development" ? err : {};
 
