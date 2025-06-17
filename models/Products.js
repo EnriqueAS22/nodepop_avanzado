@@ -2,9 +2,9 @@ import mongoose, { Schema } from "mongoose";
 
 const productSchema = new mongoose.Schema(
   {
-    name: String,
+    name: { type: String, unique: true },
     owner: { type: Schema.Types.ObjectId, ref: "User", index: true },
-    price: Number,
+    price: { type: Number, index: true },
     image: String,
     avatar: String,
     tags: [String],
@@ -13,6 +13,14 @@ const productSchema = new mongoose.Schema(
     collection: "products",
   }
 );
+
+productSchema.statics.list = function (filter, limit, skip, sort) {
+  const query = Product.find(filter);
+  query.limit(limit);
+  query.skip(skip);
+  query.sort(sort);
+  return query.exec();
+};
 
 const Product = mongoose.model("Product", productSchema);
 
