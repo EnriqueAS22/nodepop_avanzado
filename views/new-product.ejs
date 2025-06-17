@@ -1,10 +1,12 @@
 <%- include('header.ejs') %>
 
 <div class="container">
-  <h1>New Product</h1>
+  <h1><%= __("New Product") %></h1>
   <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Name</label>
+      <label for="exampleInputEmail1" class="form-label"
+        ><%= __("Name") %></label
+      >
       <input
         type="text"
         name="name"
@@ -15,7 +17,9 @@
     </div>
 
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <label for="exampleInputPassword1" class="form-label"
+        ><%= __("Price") %></label
+      >
       <input
         type="number"
         name="price"
@@ -25,7 +29,9 @@
     </div>
 
     <div class="mb-3">
-      <label for="customFile" class="form-label">Select an image</label>
+      <label for="customFile" class="form-label"
+        ><%= __("Select an image") %></label
+      >
       <input
         class="form-control"
         name="avatar"
@@ -43,7 +49,9 @@
         id="inlineCheckbox1"
         value="Work"
       />
-      <label class="form-check-label" for="inlineCheckbox1">Work</label>
+      <label class="form-check-label" for="inlineCheckbox1"
+        ><%= __("Work") %></label
+      >
     </div>
     <div class="form-check form-check-inline">
       <input
@@ -53,7 +61,9 @@
         id="inlineCheckbox2"
         value="Lifestyle"
       />
-      <label class="form-check-label" for="inlineCheckbox2">Lifestyle</label>
+      <label class="form-check-label" for="inlineCheckbox2"
+        ><%= __("Lifestyle") %></label
+      >
     </div>
     <div class="form-check form-check-inline">
       <input
@@ -63,7 +73,9 @@
         id="inlineCheckbox3"
         value="Motor"
       />
-      <label class="form-check-label" for="inlineCheckbox3">Motor</label>
+      <label class="form-check-label" for="inlineCheckbox3"
+        ><%= __("Motor") %></label
+      >
     </div>
     <div class="form-check form-check-inline">
       <input
@@ -73,9 +85,11 @@
         id="inlineCheckbox4"
         value="Mobile"
       />
-      <label class="form-check-label" for="inlineCheckbox4">Mobile</label>
+      <label class="form-check-label" for="inlineCheckbox4"
+        ><%= __("Mobile") %></label
+      >
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary"><%= __("Submit") %></button>
   </form>
 </div>
