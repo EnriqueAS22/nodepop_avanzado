@@ -7,6 +7,7 @@ import * as homeController from "./controllers/homeController.js";
 import * as loginController from "./controllers/loginController.js";
 import * as sessionManager from "./lib/sessionManager.js";
 import * as productsController from "./controllers/productsController.js";
+import * as apiProductsController from "./controllers/api/apiProductsController.js";
 import upload from "./lib/uploadConfig.js";
 import i18n from "./lib/i18nConfig.js";
 import * as localeController from "./controllers/localeController.js";
@@ -33,7 +34,12 @@ app.use(express.static(path.join(import.meta.dirname, "public")));
 app.use(express.json());
 
 /**
- * APLICATION ROUTES
+ * API ROUTES
+ */
+app.get("/api/products", apiProductsController.list);
+
+/**
+ * WEB APLICATION ROUTES
  */
 app.use(cookieParser());
 app.use(sessionManager.middleware);
