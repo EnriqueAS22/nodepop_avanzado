@@ -9,7 +9,7 @@
         <h2 class="container px-4 text-center"><%= __("Products") %></h2>
         <% products.forEach(product => { %>
             <div class="container px-4 text-center border rounded p-3 my-3">
-                <img src="<%= product.avatar ? `/avatars/${product.avatar}` : 'https://placehold.co/25' %>" class="img-thumbnail rounded w-25" alt="<%= product.avatar %>">
+                <img src="<%= product.avatar ? `/avatars/${product.avatar}` : 'https://placehold.co/25' %>" class="img-thumbnail rounded w-25" alt="<%= product.name %>">
                 <p><%= product.owner %></p>
                 <h5><%= product.name %></h5>
                 <p><%= product.price %>€</p>

@@ -9,14 +9,13 @@ export function index(req, res, next) {
  */
 export async function postNew(req, res, next) {
   try {
-    const { name, price, image, tags } = req.body;
+    const { name, price, tags } = req.body;
     const userId = req.session.userId;
     const product = new Product({
       name,
       owner: userId,
       price,
-      image,
-      avatar: req.file.filename,
+      avatar: req.file ? req.file.filename : null,
       tags,
     });
     await product.save();
