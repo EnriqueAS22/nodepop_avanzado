@@ -4,6 +4,12 @@
 npm install
 ```
 
+# Copy environment variables example to .env
+
+```sh
+cp .env.example .env
+```
+
 # To connect to MongoDB
 
 ```sh
