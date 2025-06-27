@@ -1,4 +1,4 @@
 node_modules/
 public/avatars/
 uploads/
-.env/
+.env
