@@ -2,6 +2,7 @@ import Product from "../../models/Products.js";
 import { unlink } from "node:fs/promises";
 import path from "node:path";
 import createError from "http-errors";
+import thumbnailRequester from "../../lib/thumbnailRequester.js";
 
 export async function list(req, res, next) {
   try {
@@ -61,6 +62,15 @@ export async function newProduct(req, res, next) {
     product.avatar = req.file?.filename;
     product.owner = userId;
     const savedProduct = await product.save();
+
+    // Emitimos evento al Thumbnail
+    if (req.file) {
+      thumbnailRequester.send({
+        type: "create-thumbnail",
+        imagePath: `public/avatars/${req.file.filename}`,
+        filename: req.file.filename,
+      });
+    }
 
     res.status(201).json({ result: savedProduct });
   } catch (error) {
